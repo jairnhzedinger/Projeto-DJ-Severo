@@ -7,12 +7,12 @@ sudo apt install -y git docker.io
 
 # Verificar se o Docker está rodando e tentar iniciar se não estiver
 echo "Verificando o status do Docker..."
-sudo systemctl start docker
+sudo service docker restart
 sleep 30
 sudo systemctl is-active --quiet docker
 if [ $? -ne 0 ]; then
   echo "Docker não está rodando. Tentando iniciar o Docker..."
-  sudo systemctl start docker
+  sudo service docker restart
   sleep 30
   sudo systemctl is-active --quiet docker
   if [ $? -ne 0 ]; then
